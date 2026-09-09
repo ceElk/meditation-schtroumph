@@ -1,0 +1,90 @@
+{
+  "type": "anti-stress",
+  "nom": "Méditation anti-stress",
+  "accroche": "Calme-toi. Non, pas comme ça. Recommence.",
+  "musiqueFond": "assets/audio/musique-fond-anti-stress.mp3",
+  "sequence": [
+    {
+      "phase": "inspire",
+      "humeur": "zen",
+      "texte": "Bon. On va essayer de se détendre. Toi en premier.",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix1.mp3",
+      "image": "assets/images/perso-zen.png",
+      "fond": "assets/images/anti-stress/anti-stress.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "grincheux",
+      "texte": "Voilà, expire. Non, pas comme un soupir excédé. Enfin si, un peu quand même.",
+      "duree": 4500,
+      "audioVoix": "assets/audio/anti-stress-voix2.mp3",
+      "image": "assets/images/perso-grincheux.png",
+      "fond": "assets/images/anti-stress/grincheux.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "enerve",
+      "texte": "Recommence. Inspire, calmement. CALMEMENT.",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix3.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/anti-stress/carnage.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "tres-enerve",
+      "texte": "Pourquoi tu respires aussi fort ? Détends-toi, à la fin !",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix4.mp3",
+      "image": "assets/images/perso-tres-enerve.png",
+      "fond": "assets/images/anti-stress/stress.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "grincheux",
+      "texte": "Bon, on reprend depuis le début. Comme toujours.",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix5.mp3",
+      "image": "assets/images/perso-grincheux.png",
+      "fond": "assets/images/anti-stress/grincheux.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "enerve",
+      "texte": "Encore un effort. Fais au moins semblant d'être calme.",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix6.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/anti-stress/stress.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "zen",
+      "texte": "Ah, tiens. Ça commence à ressembler à quelque chose.",
+      "duree": 4500,
+      "audioVoix": "assets/audio/anti-stress-voix7.mp3",
+      "image": "assets/images/perso-zen.png",
+      "fond": "assets/images/anti-stress/anti-stress.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "enerve",
+      "texte": "Ne gâche pas tout maintenant.",
+      "duree": 4000,
+      "audioVoix": "assets/audio/anti-stress-voix8.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/anti-stress/grincheux.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "zen",
+      "texte": "Voilà. Tu es calme. Moi, un peu moins, mais c'est pas le sujet.",
+      "duree": 5000,
+      "audioVoix": "assets/audio/anti-stress-voix9.mp3",
+      "image": "assets/images/perso-zen.png",
+      "fond": "assets/images/anti-stress/anti-stress.png"
+    }
+  ],
+  "bruitagesAleatoires": ["assets/audio/soupir.mp3"]
+}

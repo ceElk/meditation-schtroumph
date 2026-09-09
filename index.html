@@ -3,12 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Medita Schtroumpf
-    </title>
+    <title>Medita Schtroumpf</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- ================================================================
+         ECRAN D'INTRODUCTION : village + bouton "Entrer"
+         Se superpose a toute la page au chargement. Au clic sur le
+         bouton, un zoom donne l'impression d'entrer dans le village,
+         puis cet ecran disparait pour laisser voir le vrai site
+         (deja present juste en dessous, immobile).
+         ================================================================ -->
+    <div class="intro-overlay" id="introOverlay">
+      <div class="intro-visual" id="introVisual">
+        <img src="assets/images/bandeau.png" alt="" class="intro-bg-image" />
+      </div>
+      <div class="intro-wash" id="introWash"></div>
+      <div class="intro-content">
+        <h1 class="intro-title">Medita Schtroumpf</h1>
+        <p class="intro-sub">
+          Quelque part, au fond des bois...Oh vous allez me trouver !!!
+        </p>
+        <button id="btnEntrer" class="btn btn-primary">
+          Entrer dans le village
+        </button>
+      </div>
+    </div>
+
     <!-- <div class="marquee-bar">
       <div class="marquee-track">
         ⚠ SITE EN CONSTRUCTION PERMANENTE — MEILLEUR RESULTAT AVEC NETSCAPE

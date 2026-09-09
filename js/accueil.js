@@ -69,3 +69,59 @@ document.querySelectorAll('a[href^="#"]').forEach(function (lien) {
     }
   });
 });
+
+// ---------------------------------------------------------------
+// Ecran d'introduction : zoom dans le village + declenchement de
+// la musique d'ambiance au clic sur "Entrer dans le village".
+//
+// Pourquoi un bouton et pas un lancement automatique ? Les
+// navigateurs bloquent la lecture automatique du son tant qu'il n'y
+// a pas eu d'interaction de la personne sur la page (regle de
+// securite standard) -- le clic sur ce bouton sert justement de
+// premiere interaction, ce qui autorise la musique a demarrer.
+// ---------------------------------------------------------------
+(function () {
+  const overlay = document.getElementById("introOverlay");
+  const visuel = document.getElementById("introVisual");
+  const wash = document.getElementById("introWash");
+  const btnEntrer = document.getElementById("btnEntrer");
+
+  if (!overlay || !btnEntrer) return; // securite si ces elements n'existent pas sur une autre page
+
+  const reduireAnimations = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  let musiqueAmbiance;
+
+  function demarrerMusique() {
+    try {
+      musiqueAmbiance = new Audio("assets/audio/musique-fond-stroumph.mp3");
+      musiqueAmbiance.loop = true;
+      musiqueAmbiance.volume = 0.4;
+      musiqueAmbiance.play().catch(function () {
+        // fichier absent ou lecture bloquee : pas grave, le site reste utilisable sans musique
+      });
+    } catch (e) {
+      // pas grave non plus
+    }
+  }
+
+  btnEntrer.addEventListener("click", function () {
+    btnEntrer.disabled = true;
+    demarrerMusique();
+
+    if (reduireAnimations) {
+      // Personne ayant demande moins d'animations dans son systeme :
+      // on saute direct a l'etape finale, sans zoom.
+      overlay.classList.add("masque");
+      return;
+    }
+
+    visuel.classList.add("zoom");
+    wash.classList.add("cover");
+
+    setTimeout(function () {
+      overlay.classList.add("masque");
+    }, 1600); // cale sur la duree de la transition CSS du zoom (1.7s)
+  });
+})();
