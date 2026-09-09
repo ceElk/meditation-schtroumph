@@ -12,8 +12,8 @@
   --ink: #062048; /* contours "bande dessinee" */
 
   /* Comic Sans assume, c'est tout l'esprit du "site fait par un grognon" */
-  --font-head: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
-  --font-body: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+  --font-head: "Patrick Hand", cursive;
+  --font-body: "DM Sans", sans-serif;
 }
 
 * {
@@ -131,20 +131,20 @@ h3 {
 
 .btn {
   display: inline-block;
-  padding: 12px 28px;
-  border-radius: 3px;
+  padding: 10px 18px;
+  border-radius: 25px;
   font-family: var(--font-head);
   font-weight: bold;
   font-size: 0.95rem;
   cursor: pointer;
-  border: 4px outset #d8d8d8;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  /* border: 4px outset #d8d8d8; */
+  /* box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5); */
 }
 .btn:active {
   border-style: inset;
 }
 .btn-primary {
-  background: #e8e8e8;
+  background: #ffffff;
   color: var(--forest);
 }
 .btn-light {
