@@ -1103,6 +1103,106 @@ h3 {
   background: #eef7f0;
   border-color: var(--accent-green);
 }
+
+/* ================================================================
+   PAGE QUI SUIS-JE (qui-suis-je.html uniquement)
+   ================================================================ */
+
+.bio-stage {
+  background: linear-gradient(180deg, var(--forest-mid) 0%, var(--forest) 100%);
+  padding: 60px 6% 80px;
+}
+
+.bio-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.bio-portrait {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.bio-bulle {
+  top: -10px;
+  left: 60%;
+  width: 220px;
+}
+
+.bio-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.bio-intro h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.bio-intro .lede {
+  margin-top: 8px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.bio-section {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 26px 30px;
+  box-shadow: 6px 6px 0 var(--ink);
+  color: var(--ink);
+}
+.bio-section h2 {
+  color: var(--forest);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+.bio-section p {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.bio-section p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-quotes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 6px;
+}
+.bio-quote {
+  background: var(--forest-mid);
+  color: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-family: var(--font-head);
+  font-style: normal;
+  font-size: 0.92rem;
+}
+
+.bio-temoignage {
+  font-style: italic;
+  color: #5c6b8a;
+  border-left: 3px solid var(--accent-brown);
+  padding-left: 14px;
+}
+
+@media (max-width: 780px) {
+  .bio-quotes {
+    grid-template-columns: 1fr;
+  }
+  .bio-bulle {
+    display: none;
+  }
+}
 @media (max-width: 780px) {
   .hero-body {
     flex-direction: column-reverse;

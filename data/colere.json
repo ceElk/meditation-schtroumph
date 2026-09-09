@@ -2,14 +2,14 @@
   "type": "colere",
   "nom": "Méditation de la colère",
   "accroche": "Ironique : il apprend à gérer la colère en étant lui-même hyper à cran.",
-  "musiqueFond": "audio/musiques/colere-fond.mp3",
+  "musiqueFond": "assets/audio/musique-fond-stroumph.mp3",
   "sequence": [
     {
       "phase": "inspire",
       "humeur": "enerve",
       "texte": "Inspire. Doucement. Non, PAS comme ça.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-01.mp3",
+      "audioVoix": "assets/audio/voix-replique1.mp3",
       "image": "assets/images/perso-enerve.png",
       "fond": "assets/images/fond-pluie.png"
     },
@@ -18,7 +18,7 @@
       "humeur": "zen",
       "texte": "Voilà. T'as géré ta colère. Moi, la mienne, c'est une autre histoire.",
       "duree": 5000,
-      "audioVoix": "audio/voix/colere-08.mp3",
+      "audioVoix": "assets/audio/Voix2_Voila.mp3",
       "image": "assets/images/perso-zen.png",
       "fond": "assets/images/fond-soleil.png"
     },
@@ -27,7 +27,7 @@
       "humeur": "tres-enerve",
       "texte": "Expire. Relâche. Comme moi je relâche patience avec toi.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-02.mp3",
+      "audioVoix": "assets/audio/Voix3_Expire.mp3",
       "image": "assets/images/perso-tres-enerve.png",
       "fond": "assets/images/fond-casse.png"
     },
