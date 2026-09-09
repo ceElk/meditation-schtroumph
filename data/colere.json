@@ -1,0 +1,93 @@
+{
+  "type": "colere",
+  "nom": "Méditation de la colère",
+  "accroche": "Ironique : il apprend à gérer la colère en étant lui-même hyper à cran.",
+  "musiqueFond": "audio/musiques/colere-fond.mp3",
+  "sequence": [
+    {
+      "phase": "inspire",
+      "humeur": "enerve",
+      "texte": "Inspire. Doucement. Non, PAS comme ça.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-01.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/fond-pluie.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "zen",
+      "texte": "Voilà. T'as géré ta colère. Moi, la mienne, c'est une autre histoire.",
+      "duree": 5000,
+      "audioVoix": "audio/voix/colere-08.mp3",
+      "image": "assets/images/perso-zen.png",
+      "fond": "assets/images/fond-soleil.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "tres-enerve",
+      "texte": "Expire. Relâche. Comme moi je relâche patience avec toi.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-02.mp3",
+      "image": "assets/images/perso-tres-enerve.png",
+      "fond": "assets/images/fond-casse.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "enerve",
+      "texte": "Encore. Et cette fois, sans serrer les dents.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-03.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/fond-eclairs.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "grincheux",
+      "texte": "Voilà. Un peu. C'est un début, je suppose.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-04.mp3",
+      "image": "assets/images/perso-grincheux.png",
+      "fond": "assets/images/fond-pluie.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "tres-enerve",
+      "texte": "On respire pour évacuer la colère. Moi je respire pour pas t'en coller une.",
+      "duree": 4500,
+      "audioVoix": "audio/voix/colere-05.mp3",
+      "image": "assets/images/perso-tres-enerve.png",
+      "fond": "iassets/images/fond-casse.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "grincheux",
+      "texte": "Bon sang que c'est dur d'être patient avec toi.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-06.mp3",
+      "image": "assets/images/perso-grincheux.png",
+      "fond": "assets/images/fond-pluie.png"
+    },
+    {
+      "phase": "inspire",
+      "humeur": "enerve",
+      "texte": "Dernière fois. Inspire un grand coup.",
+      "duree": 4000,
+      "audioVoix": "audio/voix/colere-07.mp3",
+      "image": "assets/images/perso-enerve.png",
+      "fond": "assets/images/fond-eclairs.png"
+    },
+    {
+      "phase": "expire",
+      "humeur": "zen",
+      "texte": "Voilà. T'as géré ta colère. Moi, la mienne, c'est une autre histoire.",
+      "duree": 5000,
+      "audioVoix": "audio/voix/colere-08.mp3",
+      "image": "assets/images/perso-zen.png",
+      "fond": "assets/images/fond-soleil.png"
+    }
+  ],
+  "bruitagesAleatoires": [
+    "audio/bruitages/soupir.mp3",
+    "audio/bruitages/klaxon.mp3"
+  ]
+}

@@ -1,0 +1,1133 @@
+:root {
+  --forest: #0b3b82; /* fond bleu principal */
+  --forest-deep: #082a5e; /* bleu plus fonce (header, footer, tagline) */
+  --forest-mid: #12439a; /* bleu du degrade du hero */
+  --moss: #5c8a63; /* couleur du corps du personnage (inchangee) */
+  --accent-red: #c1443a; /* brique */
+  --accent-green: #3b7a4e; /* vert foret (accents UI, distinct du corps du personnage) */
+  --accent-brown: #7a5230; /* marron bois */
+  --cap: #b5533a; /* chapeau champignon du personnage (inchange) */
+  --capspot: #f5efe0;
+  --muted: #cfe0f5; /* texte secondaire, bleu tres clair */
+  --ink: #062048; /* contours "bande dessinee" */
+
+  /* Comic Sans assume, c'est tout l'esprit du "site fait par un grognon" */
+  --font-head: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+  --font-body: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--forest);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 26px 26px;
+  color: #ffffff;
+  line-height: 1.5;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  color: #ffffff;
+  font-family: var(--font-head);
+}
+
+/* ---------- BANDEAU DEFILANT ---------- */
+
+.marquee-bar {
+  background: repeating-linear-gradient(
+    45deg,
+    #f2c230,
+    #f2c230 14px,
+    #111 14px,
+    #111 28px
+  );
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 3px solid var(--ink);
+}
+.marquee-track {
+  display: inline-block;
+  padding: 6px 0;
+  color: #111;
+  background: #f2c230;
+  font-weight: bold;
+  font-size: 0.85rem;
+  animation: defiler 18s linear infinite;
+  padding-left: 100%;
+}
+@keyframes defiler {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* ---------- CLIGNOTEMENT (blink a l'ancienne) ---------- */
+
+.blink {
+  animation: clignoter 1s steps(1) infinite;
+}
+@keyframes clignoter {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- RUBAN "EN CONSTRUCTION" ---------- */
+
+.ruban {
+  position: absolute;
+  top: 22px;
+  right: -54px;
+  width: 220px;
+  padding: 6px 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #f2c230,
+    #f2c230 10px,
+    #111 10px,
+    #111 20px
+  );
+  color: #111;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 0.78rem;
+  text-align: center;
+  transform: rotate(35deg);
+  z-index: 5;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+/* ---------- BOUTONS BISEAUTES (style Windows 95) ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 3px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 4px outset #d8d8d8;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.btn:active {
+  border-style: inset;
+}
+.btn-primary {
+  background: #e8e8e8;
+  color: var(--forest);
+}
+.btn-light {
+  background: var(--accent-red);
+  color: #ffffff;
+  border-color: #e2897f;
+}
+
+/* ---------- DOODLES FLOTTANTS ---------- */
+
+.doodle {
+  position: absolute;
+  font-family: var(--font-head);
+  color: var(--accent-green);
+  font-size: 1.8rem;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: flotter 4.5s ease-in-out infinite;
+  z-index: 1;
+}
+.doodle-zzz {
+  font-size: 1.3rem;
+  color: var(--muted);
+  animation-duration: 5.5s;
+}
+.doodle-bang {
+  color: var(--accent-red);
+  font-size: 2.4rem;
+  animation-duration: 3.5s;
+}
+.doodle-swirl {
+  color: var(--muted);
+  font-size: 1.6rem;
+  animation-duration: 6s;
+}
+@keyframes flotter {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+/* ---------- HEADER (site) ---------- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 6%;
+  background: var(--forest-deep);
+  border-bottom: 3px solid var(--ink);
+}
+.brand,
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/**********  le logo sur cote du bandau*********/
+.hero-mascot {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0; /* empeche flex de forcer le conteneur a s'etirer */
+}
+
+.mascot-image {
+  width: 100%;
+  max-width: 260px; /* meme gabarit que l'ancien mascot-wrap en CSS */
+  height: auto; /* garde les proportions, pas de deformation */
+  display: block;
+}
+
+@media (max-width: 780px) {
+  .mascot-image {
+    max-width: 180px; /* plus petit sur mobile */
+    margin: 0 auto;
+  }
+}
+
+.hero-nav .btn-light {
+  position: relative;
+  z-index: 6; /* passe au-dessus du ruban (qui est en z-index: 5) */
+  margin-right: 24px; /* laisse un peu d'espace avec le ruban */
+}
+
+.site-header .brand {
+  margin-left: 24px; /* augmente cette valeur pour le pousser plus a droite */
+}
+.logo-icon {
+  flex-shrink: 0;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cap);
+  box-shadow: 0 0 8px 2px rgba(181, 83, 58, 0.7);
+}
+.site-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 0.92rem;
+}
+.site-nav a {
+  color: var(--muted);
+  border-bottom: 1px dotted var(--muted);
+}
+.site-nav a:hover {
+  color: #ffffff;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, var(--forest-mid) 0%, var(--forest) 100%);
+  padding-bottom: 40px;
+  overflow: hidden;
+  border-bottom: 4px double var(--ink);
+}
+
+/* ---------- DECOR DE VILLAGE (fond du bandeau) ---------- */
+
+.hero-village {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.v-tree {
+  position: absolute;
+  bottom: 0;
+  width: 70px;
+  height: 160px;
+}
+.v-tree::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 50px;
+  background: var(--accent-brown);
+  border-radius: 2px;
+}
+.v-tree::after {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 110px;
+  background: var(--accent-green);
+  border-radius: 50% 50% 45% 45%;
+  opacity: 0.9;
+}
+.v-house {
+  position: absolute;
+  bottom: 0;
+  width: 70px;
+  height: 100px;
+  opacity: 0.85;
+}
+.v-house--big {
+  width: 96px;
+  height: 130px;
+}
+.v-house::before {
+  /* chapeau champignon */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  background: var(--cap);
+  border-radius: 50% 50% 8% 8% / 100% 100% 14% 14%;
+  border: 2px solid var(--ink);
+}
+.v-house--big::before {
+  height: 82px;
+}
+.v-house::after {
+  /* pied de la maison */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  width: 48%;
+  height: 40px;
+  background: var(--capspot);
+  border-radius: 4px 4px 2px 2px;
+  border: 2px solid var(--ink);
+}
+.v-firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  box-shadow: 0 0 8px 3px rgba(193, 68, 58, 0.6);
+  animation: v-derive 5s ease-in-out infinite;
+}
+@keyframes v-derive {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 59, 130, 0.72) 0%,
+    rgba(11, 59, 130, 0.38) 100%
+  );
+}
+
+.hero-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 5%;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.hero-links {
+  display: flex;
+  gap: 30px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.hero-links a:hover {
+  color: #ffffff;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 30px 5% 10px;
+}
+.hero-text {
+  flex: 1.15;
+  color: #ffffff;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent-brown);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border: 2px dashed #ffffff;
+  transform: rotate(-4deg);
+  margin-bottom: 16px;
+}
+
+.hero-text h1 {
+  font-weight: bold;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.2;
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.hero-text .lede {
+  margin-top: 16px;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.hero-text p:not(.lede):not(.fine-print) {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 480px;
+}
+.hero-text .btn {
+  margin-top: 26px;
+}
+.fine-print {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.hero-mascot {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.mascot-wrap {
+  position: relative;
+  width: 240px;
+  animation: bercer 3.2s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+@keyframes bercer {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.bulle-bd {
+  position: absolute;
+  top: -30px;
+  left: 58%;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 3px solid var(--ink);
+  width: 190px;
+  text-align: center;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+.bulle-bd::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 30px;
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: var(--ink) transparent transparent transparent;
+}
+.bulle-bd::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 32px;
+  border-width: 8px 6px 0 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+  z-index: 1;
+}
+
+.rock {
+  width: 190px;
+  height: 42px;
+  background: #33472e;
+  border-radius: 50%;
+  margin: 0 auto -12px;
+  opacity: 0.6;
+}
+.body-shape {
+  width: 160px;
+  height: 160px;
+  background: var(--moss);
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  border: 3px solid var(--ink);
+}
+.cap-shape {
+  width: 215px;
+  height: 130px;
+  background: var(--cap);
+  border-radius: 50%;
+  position: absolute;
+  top: -72px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid var(--ink);
+}
+.cap-shape .s1,
+.cap-shape .s2,
+.cap-shape .s3 {
+  position: absolute;
+  background: var(--capspot);
+  border-radius: 50%;
+}
+.cap-shape .s1 {
+  width: 18px;
+  height: 18px;
+  top: 24px;
+  left: 48px;
+}
+.cap-shape .s2 {
+  width: 14px;
+  height: 14px;
+  top: 13px;
+  right: 56px;
+}
+.cap-shape .s3 {
+  width: 16px;
+  height: 16px;
+  top: 40px;
+  right: 32px;
+}
+.brow {
+  position: absolute;
+  width: 38px;
+  height: 8px;
+  background: var(--ink);
+  border-radius: 4px;
+  top: 54px;
+}
+.brow.l {
+  left: 32px;
+  transform: rotate(var(--brow-rot, 18deg));
+}
+.brow.r {
+  right: 32px;
+  transform: rotate(calc(var(--brow-rot, 18deg) * -1));
+}
+.eye {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--ink);
+  top: 69px;
+}
+.eye.l {
+  left: 44px;
+}
+.eye.r {
+  right: 44px;
+}
+.mouth {
+  position: absolute;
+  width: 50px;
+  height: 7px;
+  background: var(--ink);
+  border-radius: var(--mouth-curve, 4px);
+  top: 104px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.arms {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  top: 72px;
+  left: 0;
+}
+.arm {
+  position: absolute;
+  width: 64px;
+  height: 22px;
+  background: var(--moss);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  top: 0;
+}
+.arm.l {
+  left: 6px;
+  transform: rotate(18deg);
+}
+.arm.r {
+  right: 6px;
+  transform: rotate(-18deg);
+}
+
+/* ---------- HUMEURS DU PERSONNAGE (repli CSS si l'image n'existe pas) ---------- */
+
+.mood-zen {
+  --brow-rot: 4deg;
+  --mouth-curve: 20px;
+}
+.mood-enerve {
+  --brow-rot: 20deg;
+  --mouth-curve: 4px;
+}
+.mood-tres-enerve {
+  --brow-rot: 30deg;
+  --mouth-curve: 2px;
+}
+.mood-grincheux {
+  --brow-rot: 12deg;
+  --mouth-curve: 4px 4px 16px 16px;
+}
+
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 44px;
+  padding: 24px 5% 0;
+  border-top: 3px dashed rgba(255, 255, 255, 0.3);
+}
+.hero-stats li {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-family: var(--font-head);
+  font-weight: bold;
+}
+.hero-stats .icon {
+  margin-right: 6px;
+}
+.hero-stats small {
+  display: block;
+  color: var(--muted);
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+/* ---------- SEPARATEUR BARIOLE ---------- */
+
+.retro-divider {
+  height: 14px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--accent-red) 0 16px,
+    var(--accent-brown) 16px 32px,
+    var(--accent-green) 32px 48px,
+    var(--forest-mid) 48px 64px
+  );
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+/* ---------- MEDITATIONS ---------- */
+
+.meditations {
+  position: relative;
+  padding: 50px 6% 80px;
+  text-align: center;
+  background: var(--forest-mid);
+  overflow: hidden;
+}
+.meditations h2 {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 2.1rem;
+  margin-bottom: 46px;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 var(--ink);
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  text-align: left;
+}
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  padding: 26px 24px;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.carte:nth-child(6n + 1) {
+  transform: rotate(-2deg);
+}
+.carte:nth-child(6n + 2) {
+  transform: rotate(1.5deg);
+}
+.carte:nth-child(6n + 3) {
+  transform: rotate(-1deg);
+}
+.carte:nth-child(6n + 4) {
+  transform: rotate(2deg);
+}
+.carte:nth-child(6n + 5) {
+  transform: rotate(-1.5deg);
+}
+.carte:nth-child(6n + 6) {
+  transform: rotate(1deg);
+}
+.carte:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.carte-titre {
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--forest);
+}
+.carte-sous {
+  font-size: 0.88rem;
+  color: #5c6b8a;
+}
+
+.carte-visuel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  border: 3px solid var(--ink);
+  font-size: 2.4rem;
+  margin-bottom: 4px;
+  background: var(--forest-mid);
+}
+
+.carte-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* ---------- TAGLINE ---------- */
+
+.tagline {
+  padding: 64px 6%;
+  text-align: center;
+  background: var(--forest-deep);
+}
+.tagline-sticker {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: #ffffff;
+  background: var(--accent-brown);
+  padding: 18px 36px;
+  border: 3px dashed #ffffff;
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  padding: 26px 6% 20px;
+  background: var(--forest-deep);
+  border-top: 3px solid var(--ink);
+  text-align: center;
+}
+.site-footer .site-nav {
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.compteur {
+  display: inline-block;
+  background: #111;
+  color: #4cff4c;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border: 3px inset #666;
+  margin-bottom: 16px;
+}
+.compteur-chiffres {
+  color: #4cff4c;
+}
+
+.webring {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.webring a {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.footer-fine {
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
+.footer-fine a {
+  text-decoration: underline;
+}
+
+/* ================================================================
+   PAGE DE MEDITATION (meditation.html uniquement)
+   ================================================================ */
+
+.meditation-mascot-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--ink);
+  display: block;
+}
+
+.meditation-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 18px 6%;
+  background: var(--forest-deep);
+  border-bottom: 3px solid var(--ink);
+}
+.meditation-switch-item {
+  padding: 8px 18px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--forest-mid);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+.meditation-switch-item.actif {
+  background: var(--accent-red);
+}
+.meditation-switch-item:hover {
+  background: var(--accent-brown);
+}
+.meditation-stage {
+  position: relative;
+  min-height: 70vh;
+  background: linear-gradient(180deg, var(--forest-mid) 0%, var(--forest) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 6% 70px;
+  text-align: center;
+  overflow: hidden;
+}
+.meditation-stage:fullscreen {
+  padding-top: 80px;
+}
+
+.meditation-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+}
+.meditation-bg-layer.visible {
+  opacity: 1;
+}
+
+.meditation-bg-layer.bg-zen {
+  background-image: linear-gradient(160deg, #3b7a4e 0%, #12439a 100%);
+}
+.meditation-bg-layer.bg-enerve {
+  background-image: linear-gradient(160deg, #c1443a 0%, #12439a 100%);
+}
+.meditation-bg-layer.bg-tres-enerve {
+  background-image: linear-gradient(160deg, #8c1414 0%, #082a5e 100%);
+}
+.meditation-bg-layer.bg-grincheux {
+  background-image: linear-gradient(160deg, #7a5230 0%, #12439a 100%);
+}
+
+.meditation-stage > *:not(.meditation-bg-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+.meditation-intro h1 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.meditation-intro p {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.cercle-respiration {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 50%;
+  border: 4px dashed rgba(255, 255, 255, 0.35);
+  transition: transform 1.8s ease-in-out;
+  transform: scale(1);
+}
+.cercle-respiration.inspire {
+  transform: scale(1.18);
+}
+.cercle-respiration.expire {
+  transform: scale(0.95);
+}
+
+.etat-respiration {
+  margin-top: 24px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--accent-brown);
+  background: #ffffff;
+  display: inline-block;
+  padding: 4px 18px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+}
+
+.bulle-meditation {
+  margin-top: 22px;
+  max-width: 480px;
+  min-height: 3em;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-weight: bold;
+  padding: 16px 24px;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.meditation-controles {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.meditation-erreur {
+  color: var(--muted);
+  font-size: 1rem;
+}
+.meditation-erreur a {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* ================================================================
+   PAGE DE CONTACT (contact.html uniquement)
+   ================================================================ */
+
+.contact-stage {
+  min-height: 70vh;
+  background: linear-gradient(180deg, var(--forest-mid) 0%, var(--forest) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 6% 80px;
+  text-align: center;
+}
+
+.contact-intro h1 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.contact-intro p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.contact-form {
+  margin-top: 36px;
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 30px 28px;
+  box-shadow: 6px 6px 0 var(--ink);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  color: var(--forest);
+  font-size: 0.92rem;
+}
+
+.champ input,
+.champ textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  background: #fbfaf6;
+  color: var(--ink);
+  resize: vertical;
+}
+.champ input:focus,
+.champ textarea:focus {
+  outline: 3px dashed var(--accent-red);
+  outline-offset: 2px;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+}
+
+.contact-message {
+  margin-top: 4px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  color: var(--accent-red);
+  background: #fdf0ee;
+  border: 2px dashed var(--accent-red);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.contact-message--victoire {
+  color: var(--accent-green);
+  background: #eef7f0;
+  border-color: var(--accent-green);
+}
+@media (max-width: 780px) {
+  .hero-body {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-text p:not(.lede) {
+    margin-inline: auto;
+  }
+  .hero-links {
+    display: none;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bulle-bd {
+    display: none;
+  }
+  .doodle {
+    display: none;
+  }
+  .ruban {
+    top: 10px;
+    right: -60px;
+  }
+}

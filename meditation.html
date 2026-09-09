@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Séance de méditation — GrognoZen</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <svg
+          class="logo-icon"
+          viewBox="0 0 100 100"
+          width="30"
+          height="30"
+          aria-hidden="true"
+        >
+          <ellipse
+            cx="50"
+            cy="62"
+            rx="34"
+            ry="34"
+            fill="#5C8A63"
+            stroke="#062048"
+            stroke-width="4"
+          />
+          <ellipse
+            cx="50"
+            cy="30"
+            rx="46"
+            ry="28"
+            fill="#B5533A"
+            stroke="#062048"
+            stroke-width="4"
+          />
+          <circle cx="34" cy="24" r="4" fill="#F5EFE0" />
+          <circle cx="60" cy="16" r="3" fill="#F5EFE0" />
+          <rect
+            x="30"
+            y="52"
+            width="16"
+            height="6"
+            rx="3"
+            fill="#062048"
+            transform="rotate(18 38 55)"
+          />
+          <rect
+            x="54"
+            y="52"
+            width="16"
+            height="6"
+            rx="3"
+            fill="#062048"
+            transform="rotate(-18 62 55)"
+          />
+          <circle cx="40" cy="64" r="5" fill="#062048" />
+          <circle cx="60" cy="64" r="5" fill="#062048" />
+          <rect x="38" y="76" width="24" height="5" rx="2.5" fill="#062048" />
+        </svg>
+        GrognoZen
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="qui-suis-je.html">Qui suis-je</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Navigation entre les types de méditation : rempli dynamiquement par meditation.js -->
+    <nav
+      class="meditation-switch"
+      id="meditationSwitch"
+      aria-label="Changer de méditation"
+    ></nav>
+
+    <main class="meditation-stage" id="meditationStage">
+      <div class="meditation-bg-layer" id="bgLayerA"></div>
+      <div class="meditation-bg-layer" id="bgLayerB"></div>
+
+      <div class="meditation-intro" id="meditationIntro">
+        <h1 id="meditationNom">Chargement...</h1>
+        <p id="meditationAccroche"></p>
+      </div>
+
+      <div class="cercle-respiration" id="cercleRespiration">
+        <img id="mascotImage" class="meditation-mascot-image" alt="" hidden />
+        <div class="mascot-wrap" id="mascotWrap">
+          <div class="cap-shape">
+            <span class="s1"></span><span class="s2"></span
+            ><span class="s3"></span>
+          </div>
+          <div class="arms">
+            <div class="arm l"></div>
+            <div class="arm r"></div>
+          </div>
+          <div class="body-shape">
+            <div class="brow l"></div>
+            <div class="brow r"></div>
+            <div class="eye l"></div>
+            <div class="eye r"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="rock"></div>
+        </div>
+      </div>
+
+      <p class="etat-respiration" id="etatRespiration">—</p>
+
+      <div class="bulle-meditation" id="bulleMeditation"></div>
+
+      <div class="meditation-controles">
+        <button id="btnDemarrer" class="btn btn-primary">
+          Lancer la séance
+        </button>
+        <button id="btnFullscreen" class="btn btn-light">⛶ Plein écran</button>
+      </div>
+
+      <p class="meditation-erreur" id="meditationErreur" hidden>
+        Cette méditation n'existe pas (encore).
+        <a href="index.html">Retour à l'accueil</a>.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <nav class="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="qui-suis-je.html">Qui suis-je</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-fine">
+        Optimisé pour un écran 800×600. Meilleur rendu avec Netscape Navigator
+        4.0.
+      </p>
+    </footer>
+
+    <script src="js/meditation.js"></script>
+  </body>
+</html>

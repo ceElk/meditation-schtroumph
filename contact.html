@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — GrognoZen (bonne chance)</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="marquee-bar">
+      <div class="marquee-track">
+        ⚠ SITE EN CONSTRUCTION PERMANENTE — MEILLEUR RESULTAT AVEC NETSCAPE
+        NAVIGATOR — N'OUBLIEZ PAS DE SIGNER LE LIVRE D'OR — ⚠ SITE EN
+        CONSTRUCTION PERMANENTE — MEILLEUR RESULTAT AVEC NETSCAPE NAVIGATOR —
+        N'OUBLIEZ PAS DE SIGNER LE LIVRE D'OR —
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="brand">
+        <img
+          src="assets/images/logo.png"
+          alt="GrognoZen"
+          class="logo-icon"
+          width="30"
+          height="30"
+        />
+        GrognoZen
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="qui-suis-je.html">Qui suis-je</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="contact-stage">
+      <div class="contact-intro">
+        <h1>Nous contacter</h1>
+        <p>Vas-y, essaie. On te souhaite bonne chance.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <label class="champ">
+          <span>Nom</span>
+          <input type="text" name="nom" placeholder="Ton nom (ou pas)" />
+        </label>
+
+        <label class="champ">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="ton@email.com" />
+        </label>
+
+        <label class="champ">
+          <span>Message</span>
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Dis-nous tout. On lira peut-être."
+          ></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-primary" id="btnEnvoyer">
+          Envoyer
+        </button>
+
+        <p class="contact-message" id="contactMessage" hidden></p>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <nav class="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="qui-suis-je.html">Qui suis-je</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="webring">
+        <a href="#">&lt;&lt; site précédent</a>
+        <span>: : Webring des sites de méditation douteuse : :</span>
+        <a href="#">site suivant &gt;&gt;</a>
+      </div>
+
+      <p class="footer-fine">
+        Optimisé pour un écran 800×600. Meilleur rendu avec Netscape Navigator
+        4.0.
+      </p>
+    </footer>
+
+    <script src="js/contact.js"></script>
+  </body>
+</html>
