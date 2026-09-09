@@ -36,7 +36,7 @@
       "humeur": "enerve",
       "texte": "Encore. Et cette fois, sans serrer les dents.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-03.mp3",
+      "audioVoix": "assets/audio/Voix4.mp3",
       "image": "assets/images/perso-enerve.png",
       "fond": "assets/images/fond-eclairs.png"
     },
@@ -45,7 +45,7 @@
       "humeur": "grincheux",
       "texte": "Voilà. Un peu. C'est un début, je suppose.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-04.mp3",
+      "audioVoix": "assets/audio/Voix5.mp3",
       "image": "assets/images/perso-grincheux.png",
       "fond": "assets/images/fond-pluie.png"
     },
@@ -54,16 +54,16 @@
       "humeur": "tres-enerve",
       "texte": "On respire pour évacuer la colère. Moi je respire pour pas t'en coller une.",
       "duree": 4500,
-      "audioVoix": "audio/voix/colere-05.mp3",
+      "audioVoix": "assets/audio/Voix6.mp3",
       "image": "assets/images/perso-tres-enerve.png",
-      "fond": "iassets/images/fond-casse.png"
+      "fond": "assets/images/fond-casse.png"
     },
     {
       "phase": "expire",
       "humeur": "grincheux",
       "texte": "Bon sang que c'est dur d'être patient avec toi.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-06.mp3",
+      "audioVoix": "assets/audio/Voix7.mp3",
       "image": "assets/images/perso-grincheux.png",
       "fond": "assets/images/fond-pluie.png"
     },
@@ -72,7 +72,7 @@
       "humeur": "enerve",
       "texte": "Dernière fois. Inspire un grand coup.",
       "duree": 4000,
-      "audioVoix": "audio/voix/colere-07.mp3",
+      "audioVoix": "assets/audio/Voix8.mp3",
       "image": "assets/images/perso-enerve.png",
       "fond": "assets/images/fond-eclairs.png"
     },
@@ -81,7 +81,7 @@
       "humeur": "zen",
       "texte": "Voilà. T'as géré ta colère. Moi, la mienne, c'est une autre histoire.",
       "duree": 5000,
-      "audioVoix": "audio/voix/colere-08.mp3",
+      "audioVoix": "assets/audio/Voix9.mp3",
       "image": "assets/images/perso-zen.png",
       "fond": "assets/images/fond-soleil.png"
     }

@@ -903,6 +903,7 @@ h3 {
 .meditation-switch-item:hover {
   background: var(--accent-brown);
 }
+
 .meditation-stage {
   position: relative;
   min-height: 70vh;
@@ -932,6 +933,7 @@ h3 {
   opacity: 1;
 }
 
+/* Repli sans photo : un degrade de couleur selon l'humeur du moment */
 .meditation-bg-layer.bg-zen {
   background-image: linear-gradient(160deg, #3b7a4e 0%, #12439a 100%);
 }
@@ -1017,6 +1019,20 @@ h3 {
 .meditation-erreur a {
   text-decoration: underline;
   color: #ffffff;
+}
+
+.chrono-affichage {
+  margin-top: 18px;
+  display: inline-block;
+  background: #111;
+  color: #4cff4c;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  padding: 8px 20px;
+  border: 3px inset #666;
+  border-radius: 6px;
 }
 
 /* ================================================================
@@ -1203,6 +1219,7 @@ h3 {
     display: none;
   }
 }
+
 @media (max-width: 780px) {
   .hero-body {
     flex-direction: column-reverse;
