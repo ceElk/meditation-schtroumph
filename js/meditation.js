@@ -472,7 +472,7 @@ fetch("data/" + type + ".json")
     lecteur.hidden = true;
 
     try {
-      const reponse = await fetch("/api/generer-voix", {
+      const reponse = await fetch("/api/generer-voix.js", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ texte: texte }),
