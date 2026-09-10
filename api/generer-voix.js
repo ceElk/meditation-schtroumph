@@ -43,33 +43,37 @@ module.exports = async function handler(req, res) {
   const voiceId = process.env.ELEVENLABS_VOICE_ID;
 
   if (!apiKey || !voiceId) {
-    res
-      .status(500)
-      .json({
-        erreur: "Configuration serveur incomplète (clé API ou voix manquante).",
-      });
+    res.status(500).json({
+      erreur: "Configuration serveur incomplète (clé API ou voix manquante).",
+    });
     return;
   }
 
   try {
+    const options = {
+      method: "POST",
+      headers: {
+        "xi-api-key": apiKey,
+        "Content-Type": "application/json",
+        //Accept: "audio/mpeg",
+      },
+      body: JSON.stringify({
+        text: texteNettoye,
+        model_id: "eleven_multilingual_v2",
+        /*
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.75,
+        },
+        */
+      }),
+    };
+    console.log("Envoi de la requête à ElevenLabs avec les options :", options);
+    console.log("Texte voiceId :", voiceId);
+
     const reponseElevenLabs = await fetch(
       "https://api.elevenlabs.io/v1/text-to-speech/" + voiceId,
-      {
-        method: "POST",
-        headers: {
-          "xi-api-key": apiKey,
-          "Content-Type": "application/json",
-          Accept: "audio/mpeg",
-        },
-        body: JSON.stringify({
-          text: texteNettoye,
-          model_id: "eleven_multilingual_v2",
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.75,
-          },
-        }),
-      }
+      options
     );
 
     if (!reponseElevenLabs.ok) {
