@@ -1359,6 +1359,84 @@ h3 {
   }
 }
 
+/* ================================================================
+   ECRAN D'INTRODUCTION (village + bouton "Entrer")
+   ================================================================ */
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000; /* au-dessus de tout le reste du site */
+  overflow: hidden;
+  background: var(
+    --forest-deep
+  ); /* visible si l'image met du temps a charger */
+}
+
+.intro-visual {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/images/bandeau.png");
+  background-size: cover;
+  background-position: center;
+  transform-origin: 60% 55%; /* point vers lequel le zoom "entre" */
+  transform: scale(1);
+  transition: transform 1.7s cubic-bezier(0.55, 0.05, 0.35, 1);
+}
+.intro-visual.zoom {
+  transform: scale(3.2);
+}
+
+.intro-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--forest-deep);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.intro-wash.cover {
+  opacity: 1;
+  transition: opacity 0.6s ease 0.9s; /* n'apparait que sur la fin du zoom */
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6%;
+}
+.intro-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-shadow: 4px 4px 0 var(--ink);
+}
+.intro-sub {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+.intro-content .btn {
+  margin-top: 32px;
+}
+
+.intro-overlay.masque {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-visual {
+    transition: none;
+  }
+  .intro-wash {
+    transition: none;
+  }
+}
+
 @media (max-width: 780px) {
   .hero-body {
     flex-direction: column-reverse;
