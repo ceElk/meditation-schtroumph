@@ -418,7 +418,7 @@ initFullscreen(); // branche le bouton plein ecran
 // .catch() final intercepte n'importe quelle erreur survenue a
 // n'importe quel moment de la chaine (fichier introuvable, JSON mal
 // forme, etc.).
-fetch("data/" + type + ".json") // data = le dossier où sont stockés les fichiers JSON/Donc ça construit la chaîne "data/colere.json"
+fetch("data/" + type + ".json")
   .then(function (reponse) {
     // reponse.ok vaut false pour les erreurs HTTP (404, 500...) --
     // fetch() ne considere PAS ca comme une erreur automatiquement,
@@ -444,3 +444,60 @@ fetch("data/" + type + ".json") // data = le dossier où sont stockés les fichi
   .catch(function () {
     afficherErreur();
   });
+
+// ---------------------------------------------------------------
+// "Fais-le parler" : le visiteur ecrit un texte, le personnage le
+// lit a voix haute. Utilise la meme fonction serverless que la page
+// dediee (/api/generer-voix) -- la cle ElevenLabs reste toujours
+// cote serveur, jamais visible ici.
+// ---------------------------------------------------------------
+(function initVoixLibre() {
+  const form = document.getElementById("formVoixLibre");
+  const texteInput = document.getElementById("texteVoixLibre");
+  const btn = document.getElementById("btnVoixLibre");
+  const message = document.getElementById("voixLibreMessage");
+  const lecteur = document.getElementById("voixLibreAudio");
+
+  if (!form) return; // securite si ce bloc n'existe pas sur une autre page
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const texte = texteInput.value.trim();
+    if (!texte) return;
+
+    btn.disabled = true;
+    btn.textContent = "Génération en cours...";
+    message.hidden = true;
+    lecteur.hidden = true;
+
+    try {
+      const reponse = await fetch("/api/generer-voix", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texte: texte }),
+      });
+
+      if (!reponse.ok) {
+        const corpsErreur = await reponse.json().catch(function () {
+          return {};
+        });
+        throw new Error(corpsErreur.erreur || "Une erreur est survenue.");
+      }
+
+      const blobAudio = await reponse.blob();
+      const url = URL.createObjectURL(blobAudio);
+      lecteur.src = url;
+      lecteur.hidden = false;
+      lecteur.play().catch(function () {
+        /* la personne devra cliquer play elle-meme */
+      });
+    } catch (erreur) {
+      message.textContent = "Oups : " + erreur.message;
+      message.hidden = false;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Faire parler le personnage";
+    }
+  });
+})();

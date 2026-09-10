@@ -77,6 +77,31 @@
         <button id="btnFullscreen" class="btn btn-light">⛶ Plein écran</button>
       </div>
 
+      <!-- ================================================================
+           FAIS-LE PARLER : le visiteur ecrit un texte, le personnage le
+           lit a voix haute (via l'API ElevenLabs, appelee cote serveur
+           pour ne jamais exposer la cle secrete au navigateur).
+           ================================================================ -->
+      <div class="voix-libre" id="voixLibre">
+        <h2 class="voix-libre-titre">Fais-le parler</h2>
+        <p class="voix-libre-sous">
+          Écris un texte, il le dira. Mot pour mot, sans discuter (ou presque).
+        </p>
+        <form id="formVoixLibre" novalidate>
+          <textarea
+            id="texteVoixLibre"
+            rows="2"
+            maxlength="300"
+            placeholder="Bonjour, gros bêta !"
+          ></textarea>
+          <button type="submit" class="btn btn-primary" id="btnVoixLibre">
+            Faire parler le personnage
+          </button>
+        </form>
+        <p class="voix-libre-message" id="voixLibreMessage" hidden></p>
+        <audio id="voixLibreAudio" controls hidden></audio>
+      </div>
+
       <p class="meditation-erreur" id="meditationErreur" hidden>
         Cette méditation n'existe pas (encore).
         <a href="index.html">Retour à l'accueil</a>.

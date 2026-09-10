@@ -12,8 +12,8 @@
   --ink: #062048; /* contours "bande dessinee" */
 
   /* Comic Sans assume, c'est tout l'esprit du "site fait par un grognon" */
-  --font-head: "Patrick Hand", cursive;
-  --font-body: "DM Sans", sans-serif;
+  --font-head: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+  --font-body: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
 }
 
 * {
@@ -44,7 +44,85 @@ body {
   overflow-x: hidden;
   cursor: default;
 }
+/* ================================================================
+   ECRAN D'INTRODUCTION (village + bouton "Entrer")
+   ================================================================ */
 
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background: var(--forest-deep);
+}
+
+.intro-visual {
+  position: absolute;
+  inset: 0;
+  transform-origin: 60% 55%;
+  transform: scale(1);
+  transition: transform 1.7s cubic-bezier(0.55, 0.05, 0.35, 1);
+}
+.intro-visual.zoom {
+  transform: scale(3.2);
+}
+
+.intro-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.intro-wash {
+  position: absolute;
+  inset: 0;
+  background: var(--forest-deep);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.intro-wash.cover {
+  opacity: 1;
+  transition: opacity 0.6s ease 0.9s;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6%;
+}
+.intro-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-shadow: 4px 4px 0 var(--ink);
+}
+.intro-sub {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+.intro-content .btn {
+  margin-top: 32px;
+}
+
+.intro-overlay.masque {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-visual {
+    transition: none;
+  }
+  .intro-wash {
+    transition: none;
+  }
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -131,20 +209,20 @@ h3 {
 
 .btn {
   display: inline-block;
-  padding: 10px 18px;
-  border-radius: 25px;
+  padding: 12px 28px;
+  border-radius: 3px;
   font-family: var(--font-head);
   font-weight: bold;
   font-size: 0.95rem;
   cursor: pointer;
-  /* border: 4px outset #d8d8d8; */
-  /* box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5); */
+  border: 4px outset #d8d8d8;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 .btn:active {
   border-style: inset;
 }
 .btn-primary {
-  background: #ffffff;
+  background: #e8e8e8;
   color: var(--forest);
 }
 .btn-light {
@@ -1021,6 +1099,60 @@ h3 {
   color: #ffffff;
 }
 
+/* ---------- FAIS-LE PARLER (voix libre, meditation.html) ---------- */
+
+.voix-libre {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 24px 26px;
+  box-shadow: 6px 6px 0 var(--ink);
+  text-align: left;
+}
+.voix-libre-titre {
+  color: var(--forest);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+.voix-libre-sous {
+  color: #5c6b8a;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+.voix-libre textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  background: #fbfaf6;
+  color: var(--ink);
+  resize: vertical;
+  margin-bottom: 14px;
+}
+.voix-libre textarea:focus {
+  outline: 3px dashed var(--accent-red);
+  outline-offset: 2px;
+}
+.voix-libre-message {
+  margin-top: 12px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  color: var(--accent-red);
+  background: #fdf0ee;
+  border: 2px dashed var(--accent-red);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.voix-libre audio {
+  width: 100%;
+  margin-top: 14px;
+}
+
 .chrono-affichage {
   margin-top: 18px;
   display: inline-block;
@@ -1217,84 +1349,6 @@ h3 {
   }
   .bio-bulle {
     display: none;
-  }
-}
-
-/* ================================================================
-   ECRAN D'INTRODUCTION (village + bouton "Entrer")
-   ================================================================ */
-
-.intro-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000; /* au-dessus de tout le reste du site */
-  overflow: hidden;
-  background: var(
-    --forest-deep
-  ); /* visible si l'image met du temps a charger */
-}
-
-.intro-visual {
-  position: absolute;
-  inset: 0;
-  background-image: url("assets/images/bandeau.png");
-  background-size: cover;
-  background-position: center;
-  transform-origin: 60% 55%; /* point vers lequel le zoom "entre" */
-  transform: scale(1);
-  transition: transform 1.7s cubic-bezier(0.55, 0.05, 0.35, 1);
-}
-.intro-visual.zoom {
-  transform: scale(3.2);
-}
-
-.intro-wash {
-  position: absolute;
-  inset: 0;
-  background: var(--forest-deep);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
-.intro-wash.cover {
-  opacity: 1;
-  transition: opacity 0.6s ease 0.9s; /* n'apparait que sur la fin du zoom */
-}
-
-.intro-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 6%;
-}
-.intro-title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  text-shadow: 4px 4px 0 var(--ink);
-}
-.intro-sub {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-.intro-content .btn {
-  margin-top: 32px;
-}
-
-.intro-overlay.masque {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro-visual {
-    transition: none;
-  }
-  .intro-wash {
-    transition: none;
   }
 }
 
