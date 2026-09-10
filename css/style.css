@@ -147,6 +147,10 @@ h3 {
   background: #ffffff;
   color: var(--forest);
 }
+.btn-primary:hover {
+  background: var(--forest);
+  color: white;
+}
 .btn-light {
   background: var(--accent-red);
   color: #ffffff;
@@ -197,7 +201,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 16px 6%;
-  background: var(--forest-deep);
+  background: transparent;
   border-bottom: 3px solid var(--ink);
 }
 .brand,
@@ -671,9 +675,12 @@ h3 {
 }
 .hero-stats li {
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 18px;
   font-family: var(--font-head);
   font-weight: bold;
+  background-color: rgba(29, 28, 28, 0.6);
+  border-radius: 15px;
+  padding: 10px;
 }
 .hero-stats .icon {
   margin-right: 6px;
