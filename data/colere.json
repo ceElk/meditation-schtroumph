@@ -81,7 +81,7 @@
       "humeur": "zen",
       "texte": "Voilà. T'as géré ta colère. Moi, la mienne, c'est une autre histoire.",
       "duree": 5000,
-      "audioVoix": "assets/audio/Voix9.mp3",
+      "audioVoix": "assets/audio/Voix2_Voila.mp3",
       "image": "assets/images/perso-zen.png",
       "fond": "assets/images/fond-soleil.png"
     }
